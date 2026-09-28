@@ -1,0 +1,11 @@
+| Campo | Detalle |
+|---|---|
+| **Error** | `ModuleNotFoundError: No module named 'citas'` |
+| **Archivo** | `src/tests/test_citas.py`, línea 2 |
+| **Línea que falla** | `from citas import calcular_copago` |
+| **Causa** | Python no encuentra el módulo `citas` porque la carpeta `src/` no está en el `sys.path` cuando se ejecuta el test desde `src/tests/`. |
+| **Solución 1** | Ejecutar desde la raíz del proyecto: `python -m pytest` |
+| **Solución 2** | Crear `pytest.ini` en la raíz con `[pytest]` y `pythonpath = src` |
+| **Solución 3** | Añadir un `conftest.py` en la raíz o en `src/` (pytest agrega su carpeta al path) |
+| **Verificación** | Confirmar que existe `src/citas.py` y que define `calcular_copago` |
+| **Estado** | Pendiente / Resuelto |
